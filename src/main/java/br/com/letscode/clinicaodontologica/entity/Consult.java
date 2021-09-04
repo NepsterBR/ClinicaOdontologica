@@ -16,7 +16,7 @@ public class Consult {
     @OneToOne
     private Patient patient;
     private DateFormat date;
-    private String procedimento;
+    private String procedure;
     @OneToOne
     private Specialty specialty;
 }

@@ -11,10 +11,8 @@ public class Dentist {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String nome;
-    private int idade;
-    @OneToOne
-    private Adress adress;
+    private String name;
+    private int age;
     @OneToMany
     private List<Telephone> telephones;
     @OneToMany
