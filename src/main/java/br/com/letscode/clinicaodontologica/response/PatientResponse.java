@@ -1,8 +1,8 @@
 package br.com.letscode.clinicaodontologica.response;
 
-import br.com.letscode.clinicaodontologica.entity.Adress;
+import br.com.letscode.clinicaodontologica.entity.complement.Adress;
 import br.com.letscode.clinicaodontologica.entity.Patient;
-import br.com.letscode.clinicaodontologica.entity.Telephone;
+import br.com.letscode.clinicaodontologica.entity.complement.Telephone;
 import lombok.Data;
 
 import java.util.List;

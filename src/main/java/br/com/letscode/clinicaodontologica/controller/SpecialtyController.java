@@ -1,6 +1,6 @@
 package br.com.letscode.clinicaodontologica.controller;
 
-import br.com.letscode.clinicaodontologica.entity.Specialty;
+import br.com.letscode.clinicaodontologica.entity.complement.Specialty;
 import br.com.letscode.clinicaodontologica.request.SpecialtyRequest;
 import br.com.letscode.clinicaodontologica.response.SpecialtyResponse;
 import br.com.letscode.clinicaodontologica.service.SpecialtyService;

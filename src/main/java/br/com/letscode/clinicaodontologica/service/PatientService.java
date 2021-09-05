@@ -20,7 +20,6 @@ public class PatientService {
     public Mono<PatientResponse> registerPatient(PatientRequest patientRequest) {
         return Mono.create( mono -> {
             var patient = patientRequest.convert();
-            patient.setTelephone(patientRequest.getTelephone());
             patientRepository.save(patient);
             mono.success(new PatientResponse(patient));
         });

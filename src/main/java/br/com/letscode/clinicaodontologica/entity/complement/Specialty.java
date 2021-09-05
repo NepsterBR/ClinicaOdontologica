@@ -1,4 +1,4 @@
-package br.com.letscode.clinicaodontologica.entity;
+package br.com.letscode.clinicaodontologica.entity.complement;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +13,8 @@ import javax.persistence.Id;
 @NoArgsConstructor
 public class Specialty {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String speciality;
 

@@ -1,6 +1,6 @@
 package br.com.letscode.clinicaodontologica.request;
 
-import br.com.letscode.clinicaodontologica.entity.Specialty;
+import br.com.letscode.clinicaodontologica.entity.complement.Specialty;
 import lombok.Data;
 
 @Data

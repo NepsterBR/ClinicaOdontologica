@@ -1,4 +1,4 @@
-package br.com.letscode.clinicaodontologica.entity;
+package br.com.letscode.clinicaodontologica.entity.complement;
 
 import lombok.Data;
 

@@ -1,5 +1,7 @@
 package br.com.letscode.clinicaodontologica.entity;
 
+import br.com.letscode.clinicaodontologica.entity.complement.Adress;
+import br.com.letscode.clinicaodontologica.entity.complement.Telephone;
 import lombok.*;
 
 import javax.persistence.*;
