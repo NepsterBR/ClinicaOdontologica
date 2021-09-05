@@ -7,9 +7,10 @@ import javax.persistence.Id;
 
 @Entity
 @Data
-public class Telephone {
+public class Adress {
 
     @Id
-    private String telephone1;
-    private String telephone2;
+    private String zipCode;
+    private String number;
+    private String complement;
 }

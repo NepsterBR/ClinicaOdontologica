@@ -1,5 +1,6 @@
 package br.com.letscode.clinicaodontologica.controller;
 
+import br.com.letscode.clinicaodontologica.entity.Patient;
 import br.com.letscode.clinicaodontologica.request.PatientRequest;
 import br.com.letscode.clinicaodontologica.response.PatientResponse;
 import br.com.letscode.clinicaodontologica.service.PatientService;
@@ -21,7 +22,7 @@ public class PatientController {
     }
 
     @GetMapping("findall")
-    public Flux<PatientResponse> findAll(){
+    public Flux<Patient> findAll(){
         return patientService.findAll();
     }
 

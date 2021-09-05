@@ -20,16 +20,17 @@ public class PatientService {
     public Mono<PatientResponse> registerPatient(PatientRequest patientRequest) {
         return Mono.create( mono -> {
             var patient = patientRequest.convert();
+            patient.setTelephone(patientRequest.getTelephone());
             patientRepository.save(patient);
             mono.success(new PatientResponse(patient));
         });
     }
 
-    public Flux<PatientResponse> findAll(){
+    public Flux<Patient> findAll(){
         return Flux.fromIterable(new ArrayList<>(patientRepository.findAll())).map(this::convertToOne);
     }
 
-    public PatientResponse convertToOne(Patient patient) {
-        return new PatientResponse(patient);
+    public Patient convertToOne(Patient patient) {
+        return patient;
     }
 }

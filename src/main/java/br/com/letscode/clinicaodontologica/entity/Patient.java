@@ -1,18 +1,13 @@
 package br.com.letscode.clinicaodontologica.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class Patient {
 
     @Id
@@ -20,19 +15,16 @@ public class Patient {
     private long id;
     private String name;
     private int age;
-    private String zipCode;
-    private String number;
-    private String complement;
-    @OneToMany
+    @OneToOne(cascade = CascadeType.PERSIST)
+    private Adress adress;
+    @OneToMany(cascade = CascadeType.PERSIST)
     private List<Telephone> telephone;
 
 
-    public Patient(String name, int age, String zipCode, String number, String complement, List<Telephone> telephone) {
+    public Patient(String name, int age, Adress adress, List<Telephone> telephone) {
         this.name = name;
         this.age = age;
-        this.zipCode = zipCode;
-        this.number = number;
-        this.complement = complement;
+        this.adress = adress;
         this.telephone = telephone;
     }
 }

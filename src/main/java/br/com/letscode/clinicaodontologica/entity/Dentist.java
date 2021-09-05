@@ -13,8 +13,8 @@ public class Dentist {
     private long id;
     private String name;
     private int age;
-    @OneToMany
-    private List<Telephone> telephones;
-    @OneToMany
+    @Transient
+    private List<String> telephones;
+    @Transient
     private List<Specialty> specialties;
 }
