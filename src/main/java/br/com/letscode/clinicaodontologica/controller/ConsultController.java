@@ -32,4 +32,5 @@ public class ConsultController {
     public Mono<?> specialConsult(@RequestParam long patientId) {
     return specialConsultService.specialConsultByPatient(patientId);
     }
+
 }

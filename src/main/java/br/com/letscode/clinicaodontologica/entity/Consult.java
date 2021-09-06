@@ -21,7 +21,7 @@ public class Consult {
     private Patient patient;
     private LocalDate date;
     private String procedure;
-    @Transient
+    @OneToOne(cascade = CascadeType.REFRESH)
     private Specialty specialty;
 
     public Consult(Dentist dentist, Patient patient, LocalDate date, String procedure,Specialty speciality) {

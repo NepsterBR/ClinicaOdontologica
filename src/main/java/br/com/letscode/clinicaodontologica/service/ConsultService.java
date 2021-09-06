@@ -12,10 +12,13 @@ import br.com.letscode.clinicaodontologica.request.ConsultRequest;
 import br.com.letscode.clinicaodontologica.response.ConsultResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import reactor.core.CoreSubscriber;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Service
@@ -27,14 +30,14 @@ public class ConsultService {
     private final SpecialtyRepository specialtyRepository;
 
     public Mono<ConsultResponse> registerConsult(ConsultRequest consultRequest) {
-        return Mono.create( mono -> {
+        return Mono.create(mono -> {
             var consult = convert(consultRequest);
             consultRepository.save(consult);
             mono.success(new ConsultResponse(consult));
         });
     }
 
-    public Flux<Consult> findAll(){
+    public Flux<Consult> findAll() {
         return Flux.fromIterable(new ArrayList<>(consultRepository.findAll())).map(this::convertToOne);
     }
 

@@ -4,6 +4,7 @@ import br.com.letscode.clinicaodontologica.entity.Consult;
 import br.com.letscode.clinicaodontologica.entity.Patient;
 import br.com.letscode.clinicaodontologica.repository.ConsultRepository;
 import br.com.letscode.clinicaodontologica.repository.PatientRepository;
+import br.com.letscode.clinicaodontologica.repository.SpecialtyRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
@@ -19,26 +20,19 @@ public class SpecialConsultService {
 
     private final ConsultRepository consultRepository;
     private final PatientRepository patientRepository;
+    private final SpecialtyRepository specialtyRepository;
 
     public Mono<?> specialConsultByPatient(long patientId){
          var flux = Mono.create(mono -> {
             var patient = patientRepository.findPatientById(patientId);
             var consuts = consultRepository.findAllByPatient(patient);
-            consuts.stream().sorted(Comparator.comparing(Consult::getDate).reversed());
-            mono.success(consuts);
+            var sorted = consuts.stream().sorted(Comparator.comparing(Consult::getDate).reversed());
+            mono.success(sorted);
             Flux.just(mono);
         });
         return flux;
 
-//        return Flux.mergeComparing(consultRepository.findAllByPatient(patient))
-//
-//        listaRanking.stream()
-//                .sorted(Comparator.comparingInt(QuizClient::getScore).reversed());
-//        return Flux.fromIterable(new ArrayList<Iterable<Consult>>((Collection<? extends Iterable<Consult>>)
-//                consultRepository.findAllByPatient(patient)));
     }
 
-    public Patient convertToOne(Patient patient) {
-        return patient;
-    }
+
 }
