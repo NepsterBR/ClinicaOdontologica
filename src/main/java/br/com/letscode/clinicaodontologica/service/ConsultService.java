@@ -50,4 +50,7 @@ public class ConsultService {
 
         return new Consult(dentist, patient, consultRequest.getDate(), consultRequest.getProcedure(), speciality);
     }
+
+
+
 }
