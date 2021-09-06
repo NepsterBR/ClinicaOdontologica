@@ -14,16 +14,16 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/dentist")
 public class DentistController {
 
-    private final DentistService dentistRepository;
+    private final DentistService dentistService;
 
     @PostMapping("register")
     public Mono<DentistResponse> registerDentist(@RequestBody DentistRequest dentistRequest) {
-        return dentistRepository.registerDentist(dentistRequest);
+        return dentistService.registerDentist(dentistRequest);
     }
 
     @GetMapping("findall")
     public Flux<Dentist> findAll(){
-        return dentistRepository.findAll();
+        return dentistService.findAll();
     }
 
 }

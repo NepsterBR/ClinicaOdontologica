@@ -21,4 +21,7 @@ public class PatientResponse {
         this.adress = patient.getAdress();
         this.telephone = patient.getTelephone();
     }
+
+    public PatientResponse() {
+    }
 }
