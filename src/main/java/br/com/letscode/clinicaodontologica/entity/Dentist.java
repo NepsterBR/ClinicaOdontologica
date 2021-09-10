@@ -1,6 +1,6 @@
 package br.com.letscode.clinicaodontologica.entity;
 
-import br.com.letscode.clinicaodontologica.entity.complement.Adress;
+import br.com.letscode.clinicaodontologica.entity.complement.Address;
 import br.com.letscode.clinicaodontologica.entity.complement.Specialty;
 import br.com.letscode.clinicaodontologica.entity.complement.Telephone;
 import lombok.Data;
@@ -19,17 +19,17 @@ public class Dentist {
     private long id;
     private String name;
     private int age;
-    @OneToOne(cascade = CascadeType.PERSIST)
-    private Adress adress;
+    @OneToOne (cascade = CascadeType.PERSIST)
+    private Address address;
     @OneToMany(cascade = CascadeType.PERSIST)
     private List<Telephone> telephones;
     @OneToMany(cascade = CascadeType.REFRESH)
     private List<Specialty> specialties;
 
-    public Dentist(String name, int age, Adress adress, List<Telephone> telephone, List<Specialty> specialties) {
+    public Dentist(String name, int age, Address address, List<Telephone> telephone, List<Specialty> specialties) {
         this.name = name;
         this.age = age;
-        this.adress = adress;
+        this.address = address;
         this.telephones = telephone;
         this.specialties = specialties;
     }

@@ -22,7 +22,7 @@ public class DentistController {
     }
 
     @GetMapping("findall")
-    public Flux<Dentist> findAll(){
+    public Flux<DentistResponse> findAll(){
         return dentistService.findAll();
     }
 

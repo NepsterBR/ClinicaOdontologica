@@ -1,6 +1,6 @@
 package br.com.letscode.clinicaodontologica.request;
 
-import br.com.letscode.clinicaodontologica.entity.complement.Adress;
+import br.com.letscode.clinicaodontologica.entity.complement.Address;
 import br.com.letscode.clinicaodontologica.entity.Patient;
 import br.com.letscode.clinicaodontologica.entity.complement.Telephone;
 import lombok.Data;
@@ -12,10 +12,10 @@ public class PatientRequest {
 
     private String name;
     private int age;
-    private Adress adress;
+    private Address address;
     private List<Telephone> telephone;
 
     public Patient convert() {
-        return new Patient(name, age, adress, telephone);
+        return new Patient(name, age, address, telephone);
     }
 }

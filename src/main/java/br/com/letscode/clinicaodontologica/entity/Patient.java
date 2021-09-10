@@ -1,8 +1,9 @@
 package br.com.letscode.clinicaodontologica.entity;
 
-import br.com.letscode.clinicaodontologica.entity.complement.Adress;
+import br.com.letscode.clinicaodontologica.entity.complement.Address;
 import br.com.letscode.clinicaodontologica.entity.complement.Telephone;
-import lombok.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
@@ -17,16 +18,16 @@ public class Patient {
     private long id;
     private String name;
     private int age;
-    @OneToOne(cascade = CascadeType.PERSIST)
-    private Adress adress;
+    @OneToOne (cascade = CascadeType.PERSIST)
+    private Address address;
     @OneToMany(cascade = CascadeType.PERSIST)
     private List<Telephone> telephone;
 
 
-    public Patient(String name, int age, Adress adress, List<Telephone> telephone) {
+    public Patient(String name, int age, Address address, List<Telephone> telephone) {
         this.name = name;
         this.age = age;
-        this.adress = adress;
+        this.address = address;
         this.telephone = telephone;
     }
 }

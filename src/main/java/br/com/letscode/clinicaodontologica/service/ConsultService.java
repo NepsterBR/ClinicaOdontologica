@@ -12,13 +12,10 @@ import br.com.letscode.clinicaodontologica.request.ConsultRequest;
 import br.com.letscode.clinicaodontologica.response.ConsultResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import reactor.core.CoreSubscriber;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @Service

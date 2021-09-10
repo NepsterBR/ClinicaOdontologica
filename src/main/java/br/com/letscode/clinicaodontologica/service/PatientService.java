@@ -16,20 +16,28 @@ import java.util.ArrayList;
 public class PatientService {
 
     private final PatientRepository patientRepository;
+    private final AddressService addressService;
 
     public Mono<PatientResponse> registerPatient(PatientRequest patientRequest) {
         return Mono.create( mono -> {
             var patient = patientRequest.convert();
             patientRepository.save(patient);
-            mono.success(new PatientResponse(patient));
+            mono.success(convertToResponse(patient));
         });
     }
 
-    public Flux<Patient> findAll(){
-        return Flux.fromIterable(new ArrayList<>(patientRepository.findAll())).map(this::convertToOne);
+    public Flux<PatientResponse> findAll(){
+        return Flux.fromIterable(new ArrayList<>(patientRepository.findAll())).map(this::convertToResponse);
     }
 
-    public Patient convertToOne(Patient patient) {
-        return patient;
+    public PatientResponse convertToResponse(Patient patient) {
+        PatientResponse patientResponse = new PatientResponse();
+        patientResponse.setName(patient.getName());
+        patientResponse.setAge(patient.getAge());
+        patientResponse.setTelephone(patient.getTelephone());
+        addressService.getViaCep(patient.getAddress()).subscribe(patientResponse::setAddressResponse);
+        patientResponse.getAddressResponse().setHouseNumber(patient.getAddress().getHouseNumber());
+
+        return patientResponse;
     }
 }
