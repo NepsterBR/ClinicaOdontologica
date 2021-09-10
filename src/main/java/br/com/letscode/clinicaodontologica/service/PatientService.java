@@ -37,6 +37,7 @@ public class PatientService {
         patientResponse.setTelephone(patient.getTelephone());
         addressService.getViaCep(patient.getAddress()).subscribe(patientResponse::setAddressResponse);
         patientResponse.getAddressResponse().setHouseNumber(patient.getAddress().getHouseNumber());
+        patientResponse.getAddressResponse().setComplement(patient.getAddress().getComplement());
 
         return patientResponse;
     }

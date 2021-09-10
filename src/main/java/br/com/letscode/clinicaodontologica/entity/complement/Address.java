@@ -22,6 +22,7 @@ public class Address {
     private String houseNumber;
     @SerializedName("cep")
     private String zipCode;
+    private String complement;
 
 }
 

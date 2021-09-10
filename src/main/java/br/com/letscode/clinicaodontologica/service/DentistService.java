@@ -38,6 +38,7 @@ public class DentistService {
         dentistResponse.setSpecialties(dentist.getSpecialties());
         addressService.getViaCep(dentist.getAddress()).subscribe(dentistResponse::setAddressResponse);
         dentistResponse.getAddressResponse().setHouseNumber(dentist.getAddress().getHouseNumber());
+        dentistResponse.getAddressResponse().setComplement(dentist.getAddress().getComplement());
         return dentistResponse;
     }
 }
